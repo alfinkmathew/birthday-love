@@ -1,0 +1,495 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Birthday ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #fff7f8;
+      color: #3b2026;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    /* Floating hearts */
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
+      text-align: center;
+      background:
+        radial-gradient(circle at top, #ffdce4, transparent 45%),
+        #fff7f8;
+      position: relative;
+    }
+
+    .small {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 20px;
+      color: #9b5363;
+    }
+
+    h1 {
+      font-size: clamp(55px, 12vw, 120px);
+      line-height: 0.9;
+      color: #7d263b;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #68434b;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 30px;
+      border-radius: 50px;
+      background: #7d263b;
+      color: white;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px rgba(125, 38, 59, 0.2);
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      background: #a63750;
+    }
+
+    /* Letter */
+
+    .letter-section {
+      background: #fff;
+    }
+
+    .letter {
+      width: min(800px, 100%);
+      background: #fffaf5;
+      padding: clamp(30px, 7vw, 70px);
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(70, 20, 30, 0.08);
+      position: relative;
+    }
+
+    .letter h2 {
+      font-size: 42px;
+      color: #7d263b;
+      margin-bottom: 30px;
+    }
+
+    .letter p {
+      font-size: 18px;
+      line-height: 2;
+      margin-bottom: 18px;
+    }
+
+    .signature {
+      margin-top: 35px;
+      font-size: 25px;
+      font-style: italic;
+      color: #7d263b;
+    }
+
+    /* Reasons */
+
+    .reasons {
+      background: #fff0f3;
+      text-align: center;
+    }
+
+    .content {
+      width: min(900px, 100%);
+    }
+
+    h2 {
+      font-size: clamp(40px, 7vw, 65px);
+      color: #7d263b;
+      margin-bottom: 45px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(80, 20, 30, 0.07);
+    }
+
+    .card span {
+      font-size: 35px;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #7d263b;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #70535a;
+    }
+
+    /* Future */
+
+    .future {
+      text-align: center;
+      background: #3a1720;
+      color: white;
+    }
+
+    .future h2 {
+      color: #ffdbe3;
+    }
+
+    .future p {
+      max-width: 700px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.9;
+      color: #f4dfe4;
+    }
+
+    /* Final */
+
+    .final {
+      text-align: center;
+      background: #fff7f8;
+    }
+
+    .final h2 {
+      margin-bottom: 20px;
+    }
+
+    .big-heart {
+      font-size: 80px;
+      animation: beat 1.2s infinite;
+      margin-bottom: 25px;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.18);
+      }
+    }
+
+    .final p {
+      font-family: Arial, sans-serif;
+      color: #68434b;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #3a1720;
+      color: #e9cbd1;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 700px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .letter h2 {
+        font-size: 35px;
+      }
+
+      .letter p {
+        font-size: 16px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left:8%; animation-delay:0s;">♥</div>
+  <div class="heart" style="left:22%; animation-delay:2s;">♡</div>
+  <div class="heart" style="left:40%; animation-delay:4s;">♥</div>
+  <div class="heart" style="left:62%; animation-delay:1s;">♡</div>
+  <div class="heart" style="left:82%; animation-delay:3s;">♥</div>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div>
+      <div class="small">A little website made just for you</div>
+
+      <h1>Happy<br>Birthday ❤️</h1>
+
+      <p>
+        Today isn't just another day.
+        Today is the day someone incredibly special
+        came into this world.
+      </p>
+
+      <a href="#letter" class="button">
+        Open Your Letter
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- LETTER -->
+  <section class="letter-section" id="letter">
+
+    <div class="letter">
+
+      <h2>Dear Love,</h2>
+
+      <p>
+        Happy Birthday to you. ❤️
+      </p>
+
+      <p>
+        I wanted to give you something a little different this year.
+        Not something expensive, not something that can be wrapped,
+        but something that I could make especially for you.
+      </p>
+
+      <p>
+        We may not have hundreds of memories together yet.
+        We may not have a huge collection of pictures or years
+        of stories to look back on.
+      </p>
+
+      <p>
+        But I believe that beautiful stories don't have to start
+        with a thousand memories.
+        Sometimes they start with one person,
+        one connection, and the hope of many beautiful days ahead.
+      </p>
+
+      <p>
+        I hope this new year of your life brings you happiness,
+        peace, success, laughter and everything your heart has been
+        quietly wishing for.
+      </p>
+
+      <p>
+        And I hope that, little by little, we create many more
+        memories that one day we'll look back at and smile about.
+      </p>
+
+      <div class="signature">
+        With love,<br>
+        Alfin ❤️
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REASONS -->
+  <section class="reasons">
+
+    <div class="content">
+
+      <div class="small">Just a few things</div>
+
+      <h2>Why You Are Special</h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <span>✨</span>
+          <h3>Your Presence</h3>
+          <p>
+            Somehow, having you in my life makes ordinary
+            days feel a little more meaningful.
+          </p>
+        </div>
+
+        <div class="card">
+          <span>❤️</span>
+          <h3>Your Heart</h3>
+          <p>
+            There is something beautiful about the person
+            you are, and I hope you never forget that.
+          </p>
+        </div>
+
+        <div class="card">
+          <span>🌙</span>
+          <h3>Our Story</h3>
+          <p>
+            We are still writing our story, and that's what
+            makes the future so exciting.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FUTURE -->
+  <section class="future">
+
+    <div class="content">
+
+      <div class="small">Chapter ahead</div>
+
+      <h2>Here's to More Memories</h2>
+
+      <p>
+        More conversations.
+        More laughter.
+        More random moments.
+        More celebrations.
+        More photographs.
+        More adventures.
+        More prayers.
+        More dreams.
+        And hopefully, many more birthdays together.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+  <section class="final">
+
+    <div>
+
+      <div class="big-heart">❤️</div>
+
+      <h2>Happy Birthday, Beautiful.</h2>
+
+      <p>
+        I hope today reminds you of how loved,
+        valuable and special you are.
+      </p>
+
+      <p style="margin-top:20px;">
+        May this be the beginning of your
+        most beautiful chapter yet.
+      </p>
+
+      <a href="#" class="button">
+        One More Time — Happy Birthday ❤️
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    Made with ❤️ especially for you
+  </footer>
+
+
+  <script>
+    // Create additional floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+
+      heart.className = "heart";
+      heart.innerHTML = Math.random() > 0.5 ? "♥" : "♡";
+
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.fontSize = (12 + Math.random() * 18) + "px";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 1000);
+  </script>
+
+</body>
+</html>
+```
