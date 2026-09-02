@@ -3,16 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1769ff">
 
-<title>Happy 27th Birthday Helu ❤️</title>
+<title>Happy 27th Birthday, Helu 💙</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+    --blue: #1769ff;
+    --blue-dark: #0b3fae;
+    --blue-light: #eaf2ff;
+    --sky: #f5f9ff;
+    --text: #12213a;
+    --muted: #68768c;
+    --white: #ffffff;
+}
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -20,553 +32,812 @@ html {
 }
 
 body {
-    background: #0b0809;
-    color: #fff;
     font-family: "DM Sans", sans-serif;
+    color: var(--text);
+    background: white;
     overflow-x: hidden;
 }
 
-/* ---------------- LOADING SCREEN ---------------- */
-
-.loader {
-    position: fixed;
-    inset: 0;
-    background: #0b0809;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    transition: opacity 1s ease, visibility 1s ease;
-}
-
-.loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loader-heart {
-    font-size: 55px;
-    animation: heartbeat 1.2s infinite;
-}
-
-.loader p {
-    margin-top: 20px;
-    letter-spacing: 4px;
-    font-size: 11px;
-    text-transform: uppercase;
-    color: #d8b4ba;
-}
-
-/* ---------------- GENERAL ---------------- */
-
-section {
-    position: relative;
-}
-
-.section-label {
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size: 11px;
-    color: #d9aab4;
-    margin-bottom: 18px;
-}
-
-h1, h2, h3 {
-    font-family: "Cormorant Garamond", serif;
-}
-
-/* ---------------- HERO ---------------- */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    padding: 80px 8%;
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(11,8,9,1) 0%,
-            rgba(11,8,9,.75) 20%,
-            rgba(11,8,9,.15) 70%,
-            rgba(11,8,9,.3) 100%
-        ),
-        url("couple.jpg") center/cover no-repeat;
-}
-
-.hero-content {
-    max-width: 900px;
-    position: relative;
-    z-index: 2;
-    padding-bottom: 40px;
-}
-
-.hero .mini {
-    font-size: 12px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: #e6c4ca;
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(65px, 11vw, 150px);
-    line-height: .78;
-    font-weight: 500;
-    letter-spacing: -4px;
-}
-
-.hero h1 span {
-    display: block;
-    font-style: italic;
-    color: #f2d6dc;
-}
-
-.hero-subtitle {
-    margin-top: 35px;
-    max-width: 550px;
-    line-height: 1.8;
-    color: #ddd0d2;
-    font-size: 16px;
-}
-
-.scroll {
-    margin-top: 45px;
-    color: #d9aab4;
+a {
     text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    color: inherit;
 }
 
-/* ---------------- POSTER ---------------- */
-
-.poster-section {
-    background: #0b0809;
-    padding: 100px 6%;
-}
-
-.poster-wrapper {
-    max-width: 1100px;
-    margin: auto;
-    position: relative;
-}
-
-.poster-wrapper img {
-    width: 100%;
+img {
+    max-width: 100%;
     display: block;
-    box-shadow: 0 30px 100px rgba(0,0,0,.7);
 }
 
-.poster-caption {
-    text-align: center;
-    margin-top: 25px;
-    color: #a9969a;
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
+/* =========================
+   NAVIGATION
+========================= */
 
-/* ---------------- LETTER ---------------- */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
 
-.letter-section {
-    background: #f5eee9;
-    color: #2c171c;
-    padding: 130px 8%;
-}
+    padding: 18px 6%;
 
-.letter-container {
-    max-width: 850px;
-    margin: auto;
-}
-
-.letter-section .section-label {
-    color: #93606b;
-}
-
-.letter-title {
-    font-size: clamp(55px, 8vw, 100px);
-    line-height: .9;
-    margin-bottom: 55px;
-    font-weight: 500;
-}
-
-.letter {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 23px;
-    line-height: 1.7;
-}
-
-.letter p {
-    margin-bottom: 25px;
-}
-
-.signature {
-    margin-top: 45px;
-    font-size: 30px;
-    font-style: italic;
-}
-
-/* ---------------- HELU ---------------- */
-
-.helu-section {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: #130d0f;
-}
-
-.helu-image {
-    min-height: 750px;
-    background: url("helu.jpg") center/cover no-repeat;
-}
-
-.helu-text {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 80px;
+
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid rgba(23,105,255,0.08);
 }
 
-.helu-text-inner {
-    max-width: 500px;
+.logo {
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: -0.5px;
 }
 
-.helu-text h2 {
-    font-size: clamp(65px, 8vw, 110px);
-    line-height: .8;
-    font-weight: 500;
-    margin-bottom: 40px;
-}
+.nav-pill {
+    padding: 9px 16px;
+    border-radius: 50px;
 
-.helu-text h2 span {
-    color: #d8aeb8;
-    font-style: italic;
-}
+    background: var(--blue-light);
+    color: var(--blue);
 
-.helu-text p {
-    color: #cbbec1;
-    line-height: 1.9;
-    font-size: 16px;
-}
-
-/* ---------------- 27 THINGS ---------------- */
-
-.reasons {
-    background: #f5eee9;
-    color: #2c171c;
-    padding: 130px 7%;
-}
-
-.reasons-header {
-    text-align: center;
-    max-width: 750px;
-    margin: auto;
-}
-
-.reasons-header h2 {
-    font-size: clamp(60px, 8vw, 110px);
-    line-height: .85;
-    font-weight: 500;
-}
-
-.reasons-header p {
-    margin-top: 30px;
-    color: #70565d;
-    line-height: 1.8;
-}
-
-.reasons-grid {
-    max-width: 1000px;
-    margin: 80px auto 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: #d7c5c9;
-}
-
-.reason {
-    background: #f5eee9;
-    padding: 35px 25px;
-    min-height: 150px;
-}
-
-.reason-number {
     font-size: 12px;
-    color: #9a6873;
-    letter-spacing: 2px;
-}
-
-.reason h3 {
-    margin-top: 15px;
-    font-size: 25px;
     font-weight: 600;
 }
 
-.reason p {
-    margin-top: 8px;
-    color: #765d63;
-    font-size: 14px;
-    line-height: 1.6;
-}
+/* =========================
+   HERO
+========================= */
 
-/* ---------------- FUTURE ---------------- */
-
-.future {
+.hero {
     min-height: 100vh;
-    display: flex;
+
+    padding: 130px 7% 70px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+
     align-items: center;
-    justify-content: center;
-    text-align: center;
 
     background:
-        linear-gradient(rgba(11,8,9,.65), rgba(11,8,9,.95)),
-        url("couple.jpg") center/cover fixed;
+        radial-gradient(
+            circle at 85% 20%,
+            #dceaff 0,
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f5f9ff 100%
+        );
 }
 
-.future-inner {
-    max-width: 850px;
-    padding: 50px;
+.hero-copy {
+    max-width: 650px;
 }
 
-.future h2 {
-    font-size: clamp(60px, 9vw, 120px);
-    line-height: .85;
-    font-weight: 500;
-}
-
-.future h2 span {
-    color: #d7aab4;
-    font-style: italic;
-}
-
-.future p {
-    margin-top: 40px;
-    color: #ddd1d3;
-    line-height: 2;
-    font-size: 17px;
-}
-
-/* ---------------- BIRTHDAY ---------------- */
-
-.birthday {
-    background: #f5eee9;
-    color: #2c171c;
-    text-align: center;
-    padding: 140px 20px;
-}
-
-.birthday h2 {
-    font-size: clamp(60px, 10vw, 140px);
-    line-height: .8;
-    font-weight: 500;
-}
-
-.birthday h2 span {
-    display: block;
-    color: #9c5969;
-    font-style: italic;
-}
-
-.birthday-number {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 170px;
-    line-height: .7;
-    margin: 40px 0;
-    color: #c28b98;
-}
-
-.birthday p {
-    max-width: 550px;
-    margin: auto;
-    line-height: 1.8;
-    color: #70565d;
-}
-
-/* ---------------- FINAL ---------------- */
-
-.final {
-    min-height: 100vh;
-    display: flex;
+.kicker {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: #0b0809;
-    padding: 50px 20px;
-}
+    gap: 8px;
 
-.final-inner {
-    max-width: 800px;
-}
+    padding: 9px 14px;
 
-.final-heart {
-    font-size: 65px;
-    animation: heartbeat 1.3s infinite;
-}
+    border-radius: 50px;
 
-.final h2 {
-    margin-top: 30px;
-    font-size: clamp(60px, 9vw, 120px);
-    line-height: .8;
-    font-weight: 500;
-}
+    background: var(--blue-light);
+    color: var(--blue);
 
-.final h2 span {
-    color: #d9aab4;
-    font-style: italic;
-}
+    font-size: 11px;
+    font-weight: 700;
 
-.final p {
-    margin-top: 40px;
-    color: #cbbdc0;
-    line-height: 1.9;
-}
-
-.final-signature {
-    margin-top: 45px;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 32px;
-    font-style: italic;
-    color: #ead4d8;
-}
-
-/* ---------------- FOOTER ---------------- */
-
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #080607;
-    color: #756568;
-    font-size: 10px;
-    letter-spacing: 3px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
-/* ---------------- HEARTS ---------------- */
+.kicker i {
+    width: 7px;
+    height: 7px;
+
+    background: var(--blue);
+
+    border-radius: 50%;
+}
+
+h1 {
+    margin-top: 25px;
+
+    font-size: clamp(58px, 8vw, 112px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+}
+
+h1 span {
+    display: block;
+
+    color: var(--blue);
+
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+    font-weight: 500;
+
+    letter-spacing: -4px;
+}
+
+.hero-text {
+    margin-top: 28px;
+
+    max-width: 540px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-flex;
+
+    margin-top: 32px;
+
+    padding: 14px 22px;
+
+    background: var(--blue);
+    color: white;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    box-shadow:
+        0 12px 30px rgba(23,105,255,0.22);
+
+    transition: 0.25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 35px rgba(23,105,255,0.30);
+}
+
+/* HERO PHOTO */
+
+.hero-photo {
+    position: relative;
+
+    max-width: 560px;
+
+    width: 100%;
+
+    margin: auto;
+}
+
+.hero-photo img {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 80px rgba(30,76,145,0.18);
+}
+
+.photo-badge {
+    position: absolute;
+
+    right: -18px;
+    bottom: 28px;
+
+    background: white;
+
+    border: 1px solid #e5edfa;
+
+    border-radius: 18px;
+
+    padding: 16px 19px;
+
+    box-shadow:
+        0 18px 45px rgba(30,76,145,0.16);
+}
+
+.photo-badge strong {
+    display: block;
+
+    font-size: 24px;
+
+    color: var(--blue);
+}
+
+.photo-badge small {
+    color: var(--muted);
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section {
+    padding: 120px 7%;
+}
+
+.soft {
+    background: var(--sky);
+}
+
+.center {
+    text-align: center;
+}
+
+.label {
+    color: var(--blue);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-top: 14px;
+
+    font-size: clamp(45px,6vw,78px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+}
+
+.section-title em {
+    font-family: "Playfair Display", serif;
+
+    font-weight: 500;
+
+    color: var(--blue);
+}
+
+.section-sub {
+    max-width: 620px;
+
+    margin: 22px auto 0;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+/* =========================
+   POSTER
+========================= */
+
+.poster-wrap {
+    max-width: 950px;
+
+    margin: 55px auto 0;
+}
+
+.poster-wrap img {
+    width: 100%;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 28px 70px rgba(25,67,125,0.18);
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-layout {
+    max-width: 1050px;
+
+    margin: 60px auto 0;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 70px;
+
+    align-items: start;
+}
+
+.letter-card {
+    padding: 45px;
+
+    background: white;
+
+    border: 1px solid #e5edfa;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 55px rgba(30,76,145,0.08);
+}
+
+.letter-card p {
+    font-family: "Playfair Display", serif;
+
+    font-size: 20px;
+
+    line-height: 1.85;
+
+    color: #33445e;
+
+    margin-bottom: 18px;
+}
+
+.signature {
+    margin-top: 28px;
+
+    color: var(--blue);
+
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+
+    font-size: 25px;
+}
+
+.side-note {
+    position: sticky;
+
+    top: 100px;
+
+    padding: 25px;
+
+    border-left: 3px solid var(--blue);
+}
+
+.side-note h3 {
+    font-size: 32px;
+
+    line-height: 1.05;
+
+    margin-bottom: 15px;
+}
+
+.side-note p {
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+/* =========================
+   HELU SECTION
+========================= */
+
+.profile {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.profile img {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+}
+
+.profile-copy h2 {
+    font-size: clamp(55px,7vw,90px);
+
+    line-height: 0.85;
+
+    letter-spacing: -4px;
+}
+
+.profile-copy h2 span {
+    color: var(--blue);
+
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+
+    font-weight: 500;
+}
+
+.profile-copy p {
+    margin-top: 28px;
+
+    color: var(--muted);
+
+    line-height: 1.9;
+
+    font-size: 16px;
+}
+
+/* =========================
+   27 REASONS
+========================= */
+
+.cards {
+    max-width: 1100px;
+
+    margin: 55px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 18px;
+}
+
+.card {
+    padding: 28px;
+
+    border: 1px solid #e5edfa;
+
+    border-radius: 20px;
+
+    background: white;
+
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 45px rgba(30,76,145,0.10);
+}
+
+.num {
+    font-size: 12px;
+
+    color: var(--blue);
+
+    font-weight: 700;
+}
+
+.card h3 {
+    margin-top: 18px;
+
+    font-size: 20px;
+}
+
+.card p {
+    margin-top: 9px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+/* =========================
+   FUTURE SECTION
+========================= */
+
+.future {
+    padding: 130px 7%;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b3fae,
+            #1769ff
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.future::after {
+    content: "27";
+
+    position: absolute;
+
+    right: -20px;
+    bottom: -90px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 430px;
+
+    color: rgba(255,255,255,0.07);
+
+    line-height: 1;
+}
+
+.future-inner {
+    max-width: 900px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.future .label {
+    color: #cfe0ff;
+}
+
+.future h2 {
+    margin-top: 15px;
+
+    font-size: clamp(55px,8vw,105px);
+
+    line-height: 0.85;
+
+    letter-spacing: -4px;
+}
+
+.future h2 em {
+    font-family: "Playfair Display", serif;
+
+    font-weight: 500;
+}
+
+.future p {
+    max-width: 650px;
+
+    margin-top: 30px;
+
+    color: #e6efff;
+
+    line-height: 1.9;
+
+    font-size: 17px;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background: white;
+}
+
+.final-heart {
+    font-size: 55px;
+
+    animation: pulse 1.3s infinite;
+}
+
+.final h2 {
+    margin-top: 25px;
+
+    font-size: clamp(55px,8vw,105px);
+
+    line-height: 0.85;
+
+    letter-spacing: -4px;
+}
+
+.final h2 span {
+    display: block;
+
+    color: var(--blue);
+
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+
+    font-weight: 500;
+}
+
+.final p {
+    max-width: 580px;
+
+    margin: 30px auto 0;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    background: #f5f9ff;
+
+    color: #8491a4;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 .heart {
     position: fixed;
-    bottom: -30px;
+
+    bottom: -20px;
+
+    z-index: 200;
+
     pointer-events: none;
-    z-index: 20;
-    color: #e3aeb9;
-    animation: floatUp linear forwards;
+
+    color: #6da1ff;
+
+    font-size: 14px;
+
+    animation:
+        floatUp 7s linear forwards;
 }
 
 @keyframes floatUp {
-    from {
-        transform: translateY(0) rotate(0deg);
+
+    0% {
+        transform:
+            translateY(0)
+            scale(0.7);
+
         opacity: 0;
     }
 
     15% {
-        opacity: .8;
+        opacity: 0.65;
     }
 
-    to {
-        transform: translateY(-110vh) rotate(360deg);
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(25deg)
+            scale(1.2);
+
         opacity: 0;
     }
 }
 
-@keyframes heartbeat {
-    0%,100% {
-        transform: scale(1);
-    }
+@keyframes pulse {
 
     50% {
-        transform: scale(1.18);
+        transform: scale(1.15);
     }
+
 }
 
-/* ---------------- MOBILE ---------------- */
+/* =========================
+   MOBILE
+========================= */
 
-@media(max-width: 800px) {
+@media(max-width:850px) {
+
+    .nav {
+        padding: 15px 5%;
+    }
 
     .hero {
-        min-height: 90vh;
-        padding: 50px 25px;
-    }
 
-    .hero h1 {
-        letter-spacing: -2px;
-    }
-
-    .poster-section {
-        padding: 60px 15px;
-    }
-
-    .letter-section {
-        padding: 90px 25px;
-    }
-
-    .letter {
-        font-size: 20px;
-    }
-
-    .helu-section {
         grid-template-columns: 1fr;
+
+        padding:
+            115px 6% 70px;
+
+        gap: 45px;
     }
 
-    .helu-image {
-        min-height: 600px;
+    h1 {
+        letter-spacing: -3px;
     }
 
-    .helu-text {
-        padding: 70px 25px;
+    .hero-photo {
+        max-width: 500px;
     }
 
-    .reasons {
-        padding: 90px 20px;
+    .photo-badge {
+        right: 10px;
     }
 
-    .reasons-grid {
+    .section {
+        padding: 90px 6%;
+    }
+
+    .letter-layout,
+    .profile {
+
         grid-template-columns: 1fr;
-        margin-top: 50px;
+
+        gap: 35px;
     }
 
-    .reason {
-        min-height: auto;
+    .side-note {
+        position: static;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
     }
 
     .future {
-        background-attachment: scroll;
+        padding: 100px 6%;
     }
 
-    .future-inner {
-        padding: 30px 20px;
-    }
-
-    .birthday {
-        padding: 100px 20px;
-    }
-
-    .birthday-number {
-        font-size: 120px;
+    .future::after {
+        font-size: 260px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- LOADER -->
 
-<div class="loader" id="loader">
-    <div class="loader-heart">❤️</div>
-    <p>A little surprise for Helu</p>
-</div>
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="nav">
+
+    <div class="logo">
+        H + A
+    </div>
+
+    <div class="nav-pill">
+        Chapter 27 · Helu
+    </div>
+
+</nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-copy">
 
-        <div class="mini">
-            September 2026 · A little something for you
+        <div class="kicker">
+            <i></i>
+            A little birthday surprise
         </div>
 
         <h1>
@@ -574,15 +845,690 @@ footer {
             <span>Helu.</span>
         </h1>
 
-        <p class="hero-subtitle">
-            Today you turn 27.
-            And instead of giving you something that can simply
-            be wrapped, I wanted to give you something made
-            especially for you.
+        <p class="hero-text">
+
+            Today isn't just another day.
+
+            Today we celebrate 27 years of you —
+            and I'm grateful that our paths crossed.
+
+            So I made this little corner of the internet
+            just for you.
+
         </p>
 
-        <a href="#poster" class="scroll">
-            ↓ Begin the story
+        <a
+            class="btn"
+            href="#letter"
+        >
+            Open your letter →
+        </a>
+
+    </div>
+
+
+    <div class="hero-photo">
+
+        <img
+            src="couple.jpg"
+            alt="A special moment together"
+        >
+
+        <div class="photo-badge">
+
+            <strong>27</strong>
+
+            <small>
+                years of beautiful you
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     POSTER
+========================= -->
+
+<section class="section soft center">
+
+    <div class="label">
+        Our little cinematic moment
+    </div>
+
+    <h2 class="section-title">
+
+        A memory worth
+        <em>keeping.</em>
+
+    </h2>
+
+    <p class="section-sub">
+
+        One picture, one moment,
+        and a story that still has so many
+        chapters left to write.
+
+    </p>
+
+
+    <div class="poster-wrap">
+
+        <img
+            src="birthday-poster.png"
+            alt="Birthday poster"
+        >
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section
+    class="section"
+    id="letter"
+>
+
+    <div class="center">
+
+        <div class="label">
+            For you
+        </div>
+
+        <h2 class="section-title">
+
+            A letter to
+            <em>Helu.</em>
+
+        </h2>
+
+    </div>
+
+
+    <div class="letter-layout">
+
+
+        <div class="side-note">
+
+            <h3>
+
+                27 looks
+                <br>
+                beautiful on you.
+
+            </h3>
+
+            <p>
+
+                I hope this year brings you
+                peace, confidence, laughter,
+                answered prayers and reasons
+                to be proud of the person
+                you're becoming.
+
+            </p>
+
+        </div>
+
+
+        <div class="letter-card">
+
+            <p>
+                Happy 27th birthday, my love. 💙
+            </p>
+
+            <p>
+
+                I wanted to give you something
+                different this year — something
+                that wasn't simply bought,
+                wrapped and opened.
+
+                I wanted to make something
+                that exists because of you.
+
+            </p>
+
+            <p>
+
+                We may not have a lifetime
+                of photographs together,
+                and we may still have so many
+                memories waiting to happen.
+
+                But that doesn't make what
+                we have any less meaningful.
+
+            </p>
+
+            <p>
+
+                Some stories start quietly.
+
+                A conversation becomes a connection,
+                a connection becomes something special,
+                and suddenly you realise that you
+                don't want to imagine the story
+                without that person in it.
+
+            </p>
+
+            <p>
+
+                As you begin another year,
+                I hope you become even more
+                of the woman you want to be.
+
+                Chase your dreams.
+                Protect your peace.
+                Laugh loudly.
+                Keep your beautiful heart.
+
+                And never forget how much
+                you are worth.
+
+            </p>
+
+            <p>
+
+                Here's to 27 —
+
+                and to all the beautiful moments
+                that are still waiting for us.
+
+            </p>
+
+
+            <div class="signature">
+
+                With love,
+                <br>
+                Alfin 💙
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     HELU
+========================= -->
+
+<section class="section soft">
+
+    <div class="profile">
+
+
+        <img
+            src="helu.jpg"
+            alt="Helu"
+        >
+
+
+        <div class="profile-copy">
+
+            <div class="label">
+                The birthday girl
+            </div>
+
+            <h2>
+
+                Beautiful
+                <span>Helu.</span>
+
+            </h2>
+
+
+            <p>
+
+                There is something special
+                about being yourself without
+                trying to be anyone else.
+
+                That's what I hope you remember today.
+
+            </p>
+
+
+            <p>
+
+                You are entering 27 with
+                a whole future ahead of you.
+
+                I hope you walk into it knowing
+                that you deserve good things,
+                genuine happiness and people
+                who celebrate you for exactly
+                who you are.
+
+            </p>
+
+
+            <a
+                class="btn"
+                href="#27things"
+            >
+                27 little reasons →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     27 REASONS
+========================= -->
+
+<section
+    class="section"
+    id="27things"
+>
+
+    <div class="center">
+
+        <div class="label">
+            Chapter 27
+        </div>
+
+        <h2 class="section-title">
+
+            27 little
+            <em>reasons.</em>
+
+        </h2>
+
+        <p class="section-sub">
+
+            Some are about your smile,
+            some about your heart,
+            and some simply because
+            you're you.
+
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+            <div class="num">01</div>
+            <h3>Your smile</h3>
+            <p>
+                It has a way of making
+                ordinary moments better.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">02</div>
+            <h3>Your eyes</h3>
+            <p>
+                There is something quietly
+                beautiful about them.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">03</div>
+            <h3>Your kindness</h3>
+            <p>
+                The little things you do matter.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">04</div>
+            <h3>Your laugh</h3>
+            <p>
+                One of the sounds
+                I never get tired of.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">05</div>
+            <h3>Your heart</h3>
+            <p>
+                You care deeply,
+                and that is beautiful.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">06</div>
+            <h3>Your strength</h3>
+            <p>
+                You keep moving forward
+                when things get hard.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">07</div>
+            <h3>Your honesty</h3>
+            <p>
+                You make things real.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">08</div>
+            <h3>Your presence</h3>
+            <p>
+                Sometimes having you around
+                is enough.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">09</div>
+            <h3>Your personality</h3>
+            <p>
+                There is only one Helu.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">10</div>
+            <h3>Your dreams</h3>
+            <p>
+                I love seeing you imagine
+                your future.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">11</div>
+            <h3>Your courage</h3>
+            <p>
+                You can handle more
+                than you think.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">12</div>
+            <h3>Your warmth</h3>
+            <p>
+                You make moments feel comfortable.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">13</div>
+            <h3>Your ambition</h3>
+            <p>
+                Keep chasing what matters to you.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">14</div>
+            <h3>Your little habits</h3>
+            <p>
+                Even the tiny things
+                make you you.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">15</div>
+            <h3>Your confidence</h3>
+            <p>
+                Never forget what
+                you're capable of.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">16</div>
+            <h3>Your patience</h3>
+            <p>
+                You understand more
+                than you realise.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">17</div>
+            <h3>Your energy</h3>
+            <p>
+                You bring something
+                different with you.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">18</div>
+            <h3>Your simplicity</h3>
+            <p>
+                You don't need to try hard
+                to shine.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">19</div>
+            <h3>Your resilience</h3>
+            <p>
+                You keep getting back up.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">20</div>
+            <h3>Your compassion</h3>
+            <p>
+                You care about the
+                people around you.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">21</div>
+            <h3>Your uniqueness</h3>
+            <p>
+                Nobody else could be you.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">22</div>
+            <h3>Your memories</h3>
+            <p>
+                Even the small ones
+                mean something.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">23</div>
+            <h3>Your future</h3>
+            <p>
+                There is so much
+                ahead of you.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">24</div>
+            <h3>Your voice</h3>
+            <p>
+                A voice that feels familiar.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">25</div>
+            <h3>Your dreams</h3>
+            <p>
+                Never stop believing in them.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">26</div>
+            <h3>Your heart</h3>
+            <p>
+                One of the things
+                I treasure most.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="num">27</div>
+            <h3>Simply you</h3>
+            <p>
+                The best reason doesn't
+                need explaining.
+            </p>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FUTURE
+========================= -->
+
+<section class="future">
+
+    <div class="future-inner">
+
+        <div class="label">
+            The chapters ahead
+        </div>
+
+        <h2>
+
+            We haven't made
+            the best memories
+            <em>yet.</em>
+
+        </h2>
+
+
+        <p>
+
+            More conversations.
+
+            More laughter.
+
+            More random adventures.
+
+            More photographs.
+
+            More celebrations.
+
+            More prayers.
+
+            More dreams.
+
+            More ordinary days that somehow
+            become our favourite memories.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="final">
+
+    <div>
+
+        <div class="final-heart">
+            💙
+        </div>
+
+
+        <h2>
+
+            Happy Birthday,
+            <span>Helu.</span>
+
+        </h2>
+
+
+        <p>
+
+            May 27 be one of the most
+            beautiful chapters of your life.
+
+            Keep smiling, keep dreaming,
+            and keep being you.
+
+        </p>
+
+
+        <a
+            class="btn"
+            href="#"
+            onclick="
+                window.scrollTo({
+                    top:0,
+                    behavior:'smooth'
+                });
+                return false;
+            "
+        >
+            Back to the beginning ↑
         </a>
 
     </div>
@@ -590,465 +1536,63 @@ footer {
 </section>
 
 
-<!-- POSTER -->
 
-<section class="poster-section" id="poster">
-
-    <div class="poster-wrapper">
-
-        <img src="birthday-poster.png" alt="Our birthday movie poster">
-
-        <div class="poster-caption">
-            Our little story · Chapter 27
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- LETTER -->
-
-<section class="letter-section">
-
-    <div class="letter-container">
-
-        <div class="section-label">
-            A letter for you
-        </div>
-
-        <h2 class="letter-title">
-            Dear Helu,
-        </h2>
-
-        <div class="letter">
-
-            <p>
-                Happy 27th birthday, my love. ❤️
-            </p>
-
-            <p>
-                I wanted to make something for you that wasn't
-                just another birthday message. Something you could
-                come back to one day and remember this moment.
-            </p>
-
-            <p>
-                We may not have thousands of photographs together.
-                We may not have years and years of memories.
-                But honestly, I don't think that's what makes a
-                story beautiful.
-            </p>
-
-            <p>
-                What matters is the person you're writing the story
-                with. And I'm grateful that you're part of mine.
-            </p>
-
-            <p>
-                As you enter 27, I pray that this year brings you
-                peace when life feels heavy, courage when things
-                feel uncertain, and happiness in the little moments
-                you sometimes overlook.
-            </p>
-
-            <p>
-                I hope you achieve the things you've been dreaming
-                about. I hope you become even more confident in
-                yourself. And I hope you always remember how
-                incredibly special you are.
-            </p>
-
-            <p>
-                And maybe one day, we'll look back at this little
-                website and laugh about how our story was only
-                beginning.
-            </p>
-
-            <div class="signature">
-                With all my love,<br>
-                Alfin ❤️
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- HELU -->
-
-<section class="helu-section">
-
-    <div class="helu-image"></div>
-
-    <div class="helu-text">
-
-        <div class="helu-text-inner">
-
-            <div class="section-label">
-                The birthday girl
-            </div>
-
-            <h2>
-                Beautiful<br>
-                <span>Helu.</span>
-            </h2>
-
-            <p>
-                27 looks beautiful on you.
-            </p>
-
-            <br>
-
-            <p>
-                I hope you see yourself the way the people who
-                love you see you — someone worth celebrating,
-                someone worth appreciating, and someone whose
-                presence makes life a little brighter.
-            </p>
-
-            <br>
-
-            <p>
-                Never forget that you don't have to be perfect
-                to be loved, appreciated or celebrated.
-                Just being you is enough.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 27 THINGS -->
-
-<section class="reasons">
-
-    <div class="reasons-header">
-
-        <div class="section-label">
-            Chapter 27
-        </div>
-
-        <h2>
-            27 Little Things
-        </h2>
-
-        <p>
-            Twenty-seven little reminders of why you're
-            so special to me.
-        </p>
-
-    </div>
-
-
-    <div class="reasons-grid">
-
-        <div class="reason">
-            <div class="reason-number">01</div>
-            <h3>Your smile</h3>
-            <p>It can change the mood of an entire day.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">02</div>
-            <h3>Your eyes</h3>
-            <p>There is something incredibly beautiful about them.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">03</div>
-            <h3>Your kindness</h3>
-            <p>The little things you do matter more than you know.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">04</div>
-            <h3>Your laugh</h3>
-            <p>One of those sounds that is impossible not to love.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">05</div>
-            <h3>Your heart</h3>
-            <p>You care deeply, and that's beautiful.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">06</div>
-            <h3>Your strength</h3>
-            <p>You keep going even when things aren't easy.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">07</div>
-            <h3>Your honesty</h3>
-            <p>You make things real instead of pretending.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">08</div>
-            <h3>Your presence</h3>
-            <p>Sometimes simply having you around is enough.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">09</div>
-            <h3>Your personality</h3>
-            <p>There is nobody quite like you.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">10</div>
-            <h3>Your patience</h3>
-            <p>You understand more than you sometimes realize.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">11</div>
-            <h3>Your dreams</h3>
-            <p>I love seeing you imagine the life you want.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">12</div>
-            <h3>Your courage</h3>
-            <p>You are capable of more than you think.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">13</div>
-            <h3>Your voice</h3>
-            <p>A voice I could listen to for hours.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">14</div>
-            <h3>Your little habits</h3>
-            <p>Even the tiny things make you uniquely you.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">15</div>
-            <h3>Your warmth</h3>
-            <p>You make people feel comfortable being themselves.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">16</div>
-            <h3>Your ambition</h3>
-            <p>Never stop chasing the things you believe in.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">17</div>
-            <h3>Your simplicity</h3>
-            <p>You don't have to try hard to be special.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">18</div>
-            <h3>Your energy</h3>
-            <p>You bring something different wherever you go.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">19</div>
-            <h3>Your dreams</h3>
-            <p>I hope you never stop believing in them.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">20</div>
-            <h3>Your resilience</h3>
-            <p>You have made it through things that weren't easy.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">21</div>
-            <h3>Your compassion</h3>
-            <p>You care, and that is a beautiful quality.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">22</div>
-            <h3>Your confidence</h3>
-            <p>Never forget the woman you're becoming.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">23</div>
-            <h3>Your uniqueness</h3>
-            <p>There is only one Helu.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">24</div>
-            <h3>Your memories</h3>
-            <p>Even the small ones mean something.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">25</div>
-            <h3>Your future</h3>
-            <p>There is so much waiting for you.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">26</div>
-            <h3>Your heart</h3>
-            <p>It is one of the things I treasure most about you.</p>
-        </div>
-
-        <div class="reason">
-            <div class="reason-number">27</div>
-            <h3>Simply you</h3>
-            <p>Because there is nobody else I'd rather celebrate today.</p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FUTURE -->
-
-<section class="future">
-
-    <div class="future-inner">
-
-        <div class="section-label">
-            What's next?
-        </div>
-
-        <h2>
-            The best parts<br>
-            <span>are still ahead.</span>
-        </h2>
-
-        <p>
-            More conversations.<br>
-            More laughter.<br>
-            More random adventures.<br>
-            More photographs.<br>
-            More celebrations.<br>
-            More prayers.<br>
-            More dreams.<br>
-            More memories.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- 27 -->
-
-<section class="birthday">
-
-    <div class="section-label">
-        Today we celebrate you
-    </div>
-
-    <h2>
-        Happy
-        <span>27th</span>
-        Birthday
-    </h2>
-
-    <div class="birthday-number">
-        27
-    </div>
-
-    <p>
-        May 27 be the year you discover new reasons
-        to smile, new dreams to chase, and new memories
-        that you'll treasure forever.
-    </p>
-
-</section>
-
-
-<!-- FINAL -->
-
-<section class="final">
-
-    <div class="final-inner">
-
-        <div class="final-heart">❤️</div>
-
-        <h2>
-            Happy Birthday,
-            <span>Helu.</span>
-        </h2>
-
-        <p>
-            Thank you for being part of my story.
-            Whatever the future holds, I hope this little
-            page reminds you that your 27th birthday was
-            worth celebrating.
-        </p>
-
-        <div class="final-signature">
-            Always cheering for you,<br>
-            Alfin
-        </div>
-
-    </div>
-
-</section>
-
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
-    Made with love · For Helu · Chapter 27
+
+    Made with love ·
+    Alfin × Helu ·
+    Chapter 27
+
 </footer>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
-
-/* Loading screen */
-
-window.addEventListener("load", function() {
-
-    setTimeout(function() {
-        document.getElementById("loader").classList.add("hidden");
-    }, 1200);
-
-});
-
-
-/* Floating hearts */
 
 function createHeart() {
 
-    const heart = document.createElement("div");
+    const heart =
+        document.createElement("div");
 
     heart.className = "heart";
 
-    heart.innerHTML = Math.random() > 0.5 ? "♥" : "♡";
+    heart.textContent =
+        Math.random() > 0.5
+        ? "♥"
+        : "♡";
 
-    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.left =
+        Math.random() * 100 + "vw";
 
     heart.style.fontSize =
-        (12 + Math.random() * 18) + "px";
+        (12 + Math.random() * 15) + "px";
 
     heart.style.animationDuration =
-        (6 + Math.random() * 5) + "s";
+        (5 + Math.random() * 4) + "s";
 
     document.body.appendChild(heart);
 
-    setTimeout(function() {
-        heart.remove();
-    }, 11000);
+    setTimeout(
+        () => heart.remove(),
+        10000
+    );
 }
 
-setInterval(createHeart, 1300);
+setInterval(
+    createHeart,
+    1400
+);
 
 </script>
+
 
 </body>
 </html>
