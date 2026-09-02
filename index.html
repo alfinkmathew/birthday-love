@@ -1,495 +1,1054 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Happy Birthday ❤️</title>
+<title>Happy 27th Birthday Helu ❤️</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
-    html {
-      scroll-behavior: smooth;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #fff7f8;
-      color: #3b2026;
-      overflow-x: hidden;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-    }
+body {
+    background: #0b0809;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
 
-    /* Floating hearts */
+/* ---------------- LOADING SCREEN ---------------- */
 
-    .heart {
-      position: fixed;
-      bottom: -30px;
-      font-size: 20px;
-      animation: float 8s linear infinite;
-      opacity: 0.7;
-      pointer-events: none;
-      z-index: 10;
-    }
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #0b0809;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 1s ease, visibility 1s ease;
+}
 
-    @keyframes float {
-      0% {
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-heart {
+    font-size: 55px;
+    animation: heartbeat 1.2s infinite;
+}
+
+.loader p {
+    margin-top: 20px;
+    letter-spacing: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #d8b4ba;
+}
+
+/* ---------------- GENERAL ---------------- */
+
+section {
+    position: relative;
+}
+
+.section-label {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 11px;
+    color: #d9aab4;
+    margin-bottom: 18px;
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", serif;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 80px 8%;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(11,8,9,1) 0%,
+            rgba(11,8,9,.75) 20%,
+            rgba(11,8,9,.15) 70%,
+            rgba(11,8,9,.3) 100%
+        ),
+        url("couple.jpg") center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 40px;
+}
+
+.hero .mini {
+    font-size: 12px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #e6c4ca;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 11vw, 150px);
+    line-height: .78;
+    font-weight: 500;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+    font-style: italic;
+    color: #f2d6dc;
+}
+
+.hero-subtitle {
+    margin-top: 35px;
+    max-width: 550px;
+    line-height: 1.8;
+    color: #ddd0d2;
+    font-size: 16px;
+}
+
+.scroll {
+    margin-top: 45px;
+    color: #d9aab4;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* ---------------- POSTER ---------------- */
+
+.poster-section {
+    background: #0b0809;
+    padding: 100px 6%;
+}
+
+.poster-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+}
+
+.poster-wrapper img {
+    width: 100%;
+    display: block;
+    box-shadow: 0 30px 100px rgba(0,0,0,.7);
+}
+
+.poster-caption {
+    text-align: center;
+    margin-top: 25px;
+    color: #a9969a;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* ---------------- LETTER ---------------- */
+
+.letter-section {
+    background: #f5eee9;
+    color: #2c171c;
+    padding: 130px 8%;
+}
+
+.letter-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.letter-section .section-label {
+    color: #93606b;
+}
+
+.letter-title {
+    font-size: clamp(55px, 8vw, 100px);
+    line-height: .9;
+    margin-bottom: 55px;
+    font-weight: 500;
+}
+
+.letter {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    line-height: 1.7;
+}
+
+.letter p {
+    margin-bottom: 25px;
+}
+
+.signature {
+    margin-top: 45px;
+    font-size: 30px;
+    font-style: italic;
+}
+
+/* ---------------- HELU ---------------- */
+
+.helu-section {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #130d0f;
+}
+
+.helu-image {
+    min-height: 750px;
+    background: url("helu.jpg") center/cover no-repeat;
+}
+
+.helu-text {
+    display: flex;
+    align-items: center;
+    padding: 80px;
+}
+
+.helu-text-inner {
+    max-width: 500px;
+}
+
+.helu-text h2 {
+    font-size: clamp(65px, 8vw, 110px);
+    line-height: .8;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.helu-text h2 span {
+    color: #d8aeb8;
+    font-style: italic;
+}
+
+.helu-text p {
+    color: #cbbec1;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+/* ---------------- 27 THINGS ---------------- */
+
+.reasons {
+    background: #f5eee9;
+    color: #2c171c;
+    padding: 130px 7%;
+}
+
+.reasons-header {
+    text-align: center;
+    max-width: 750px;
+    margin: auto;
+}
+
+.reasons-header h2 {
+    font-size: clamp(60px, 8vw, 110px);
+    line-height: .85;
+    font-weight: 500;
+}
+
+.reasons-header p {
+    margin-top: 30px;
+    color: #70565d;
+    line-height: 1.8;
+}
+
+.reasons-grid {
+    max-width: 1000px;
+    margin: 80px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #d7c5c9;
+}
+
+.reason {
+    background: #f5eee9;
+    padding: 35px 25px;
+    min-height: 150px;
+}
+
+.reason-number {
+    font-size: 12px;
+    color: #9a6873;
+    letter-spacing: 2px;
+}
+
+.reason h3 {
+    margin-top: 15px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.reason p {
+    margin-top: 8px;
+    color: #765d63;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ---------------- FUTURE ---------------- */
+
+.future {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        linear-gradient(rgba(11,8,9,.65), rgba(11,8,9,.95)),
+        url("couple.jpg") center/cover fixed;
+}
+
+.future-inner {
+    max-width: 850px;
+    padding: 50px;
+}
+
+.future h2 {
+    font-size: clamp(60px, 9vw, 120px);
+    line-height: .85;
+    font-weight: 500;
+}
+
+.future h2 span {
+    color: #d7aab4;
+    font-style: italic;
+}
+
+.future p {
+    margin-top: 40px;
+    color: #ddd1d3;
+    line-height: 2;
+    font-size: 17px;
+}
+
+/* ---------------- BIRTHDAY ---------------- */
+
+.birthday {
+    background: #f5eee9;
+    color: #2c171c;
+    text-align: center;
+    padding: 140px 20px;
+}
+
+.birthday h2 {
+    font-size: clamp(60px, 10vw, 140px);
+    line-height: .8;
+    font-weight: 500;
+}
+
+.birthday h2 span {
+    display: block;
+    color: #9c5969;
+    font-style: italic;
+}
+
+.birthday-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 170px;
+    line-height: .7;
+    margin: 40px 0;
+    color: #c28b98;
+}
+
+.birthday p {
+    max-width: 550px;
+    margin: auto;
+    line-height: 1.8;
+    color: #70565d;
+}
+
+/* ---------------- FINAL ---------------- */
+
+.final {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #0b0809;
+    padding: 50px 20px;
+}
+
+.final-inner {
+    max-width: 800px;
+}
+
+.final-heart {
+    font-size: 65px;
+    animation: heartbeat 1.3s infinite;
+}
+
+.final h2 {
+    margin-top: 30px;
+    font-size: clamp(60px, 9vw, 120px);
+    line-height: .8;
+    font-weight: 500;
+}
+
+.final h2 span {
+    color: #d9aab4;
+    font-style: italic;
+}
+
+.final p {
+    margin-top: 40px;
+    color: #cbbdc0;
+    line-height: 1.9;
+}
+
+.final-signature {
+    margin-top: 45px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    font-style: italic;
+    color: #ead4d8;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #080607;
+    color: #756568;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* ---------------- HEARTS ---------------- */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    z-index: 20;
+    color: #e3aeb9;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    from {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
-      }
+    }
 
-      20% {
-        opacity: 0.8;
-      }
+    15% {
+        opacity: .8;
+    }
 
-      100% {
+    to {
         transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
-      }
+    }
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
     }
 
-    /* Hero */
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width: 800px) {
 
     .hero {
-      text-align: center;
-      background:
-        radial-gradient(circle at top, #ffdce4, transparent 45%),
-        #fff7f8;
-      position: relative;
+        min-height: 90vh;
+        padding: 50px 25px;
     }
 
-    .small {
-      font-family: Arial, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 12px;
-      margin-bottom: 20px;
-      color: #9b5363;
+    .hero h1 {
+        letter-spacing: -2px;
     }
 
-    h1 {
-      font-size: clamp(55px, 12vw, 120px);
-      line-height: 0.9;
-      color: #7d263b;
-      margin-bottom: 25px;
+    .poster-section {
+        padding: 60px 15px;
     }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      line-height: 1.7;
-      color: #68434b;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 35px;
-      padding: 15px 30px;
-      border-radius: 50px;
-      background: #7d263b;
-      color: white;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      transition: 0.3s;
-      box-shadow: 0 10px 30px rgba(125, 38, 59, 0.2);
-    }
-
-    .button:hover {
-      transform: translateY(-4px);
-      background: #a63750;
-    }
-
-    /* Letter */
 
     .letter-section {
-      background: #fff;
+        padding: 90px 25px;
     }
 
     .letter {
-      width: min(800px, 100%);
-      background: #fffaf5;
-      padding: clamp(30px, 7vw, 70px);
-      border-radius: 8px;
-      box-shadow: 0 20px 60px rgba(70, 20, 30, 0.08);
-      position: relative;
+        font-size: 20px;
     }
 
-    .letter h2 {
-      font-size: 42px;
-      color: #7d263b;
-      margin-bottom: 30px;
+    .helu-section {
+        grid-template-columns: 1fr;
     }
 
-    .letter p {
-      font-size: 18px;
-      line-height: 2;
-      margin-bottom: 18px;
+    .helu-image {
+        min-height: 600px;
     }
 
-    .signature {
-      margin-top: 35px;
-      font-size: 25px;
-      font-style: italic;
-      color: #7d263b;
+    .helu-text {
+        padding: 70px 25px;
     }
-
-    /* Reasons */
 
     .reasons {
-      background: #fff0f3;
-      text-align: center;
+        padding: 90px 20px;
     }
 
-    .content {
-      width: min(900px, 100%);
+    .reasons-grid {
+        grid-template-columns: 1fr;
+        margin-top: 50px;
     }
 
-    h2 {
-      font-size: clamp(40px, 7vw, 65px);
-      color: #7d263b;
-      margin-bottom: 45px;
+    .reason {
+        min-height: auto;
     }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 35px 25px;
-      border-radius: 20px;
-      box-shadow: 0 10px 35px rgba(80, 20, 30, 0.07);
-    }
-
-    .card span {
-      font-size: 35px;
-      display: block;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      color: #7d263b;
-      margin-bottom: 12px;
-      font-size: 20px;
-    }
-
-    .card p {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #70535a;
-    }
-
-    /* Future */
 
     .future {
-      text-align: center;
-      background: #3a1720;
-      color: white;
+        background-attachment: scroll;
     }
 
-    .future h2 {
-      color: #ffdbe3;
+    .future-inner {
+        padding: 30px 20px;
     }
 
-    .future p {
-      max-width: 700px;
-      margin: auto;
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      line-height: 1.9;
-      color: #f4dfe4;
+    .birthday {
+        padding: 100px 20px;
     }
 
-    /* Final */
-
-    .final {
-      text-align: center;
-      background: #fff7f8;
+    .birthday-number {
+        font-size: 120px;
     }
-
-    .final h2 {
-      margin-bottom: 20px;
-    }
-
-    .big-heart {
-      font-size: 80px;
-      animation: beat 1.2s infinite;
-      margin-bottom: 25px;
-    }
-
-    @keyframes beat {
-      0%, 100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.18);
-      }
-    }
-
-    .final p {
-      font-family: Arial, sans-serif;
-      color: #68434b;
-      font-size: 17px;
-      line-height: 1.8;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #3a1720;
-      color: #e9cbd1;
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-    }
-
-    /* Mobile */
-
-    @media (max-width: 700px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .letter h2 {
-        font-size: 35px;
-      }
-
-      .letter p {
-        font-size: 16px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Floating hearts -->
-  <div class="heart" style="left:8%; animation-delay:0s;">♥</div>
-  <div class="heart" style="left:22%; animation-delay:2s;">♡</div>
-  <div class="heart" style="left:40%; animation-delay:4s;">♥</div>
-  <div class="heart" style="left:62%; animation-delay:1s;">♡</div>
-  <div class="heart" style="left:82%; animation-delay:3s;">♥</div>
+<!-- LOADER -->
 
-  <!-- HERO -->
-  <section class="hero">
-
-    <div>
-      <div class="small">A little website made just for you</div>
-
-      <h1>Happy<br>Birthday ❤️</h1>
-
-      <p>
-        Today isn't just another day.
-        Today is the day someone incredibly special
-        came into this world.
-      </p>
-
-      <a href="#letter" class="button">
-        Open Your Letter
-      </a>
-    </div>
-
-  </section>
+<div class="loader" id="loader">
+    <div class="loader-heart">❤️</div>
+    <p>A little surprise for Helu</p>
+</div>
 
 
-  <!-- LETTER -->
-  <section class="letter-section" id="letter">
+<!-- HERO -->
 
-    <div class="letter">
+<section class="hero">
 
-      <h2>Dear Love,</h2>
+    <div class="hero-content">
 
-      <p>
-        Happy Birthday to you. ❤️
-      </p>
-
-      <p>
-        I wanted to give you something a little different this year.
-        Not something expensive, not something that can be wrapped,
-        but something that I could make especially for you.
-      </p>
-
-      <p>
-        We may not have hundreds of memories together yet.
-        We may not have a huge collection of pictures or years
-        of stories to look back on.
-      </p>
-
-      <p>
-        But I believe that beautiful stories don't have to start
-        with a thousand memories.
-        Sometimes they start with one person,
-        one connection, and the hope of many beautiful days ahead.
-      </p>
-
-      <p>
-        I hope this new year of your life brings you happiness,
-        peace, success, laughter and everything your heart has been
-        quietly wishing for.
-      </p>
-
-      <p>
-        And I hope that, little by little, we create many more
-        memories that one day we'll look back at and smile about.
-      </p>
-
-      <div class="signature">
-        With love,<br>
-        Alfin ❤️
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- REASONS -->
-  <section class="reasons">
-
-    <div class="content">
-
-      <div class="small">Just a few things</div>
-
-      <h2>Why You Are Special</h2>
-
-      <div class="cards">
-
-        <div class="card">
-          <span>✨</span>
-          <h3>Your Presence</h3>
-          <p>
-            Somehow, having you in my life makes ordinary
-            days feel a little more meaningful.
-          </p>
+        <div class="mini">
+            September 2026 · A little something for you
         </div>
 
-        <div class="card">
-          <span>❤️</span>
-          <h3>Your Heart</h3>
-          <p>
-            There is something beautiful about the person
-            you are, and I hope you never forget that.
-          </p>
+        <h1>
+            Happy Birthday
+            <span>Helu.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Today you turn 27.
+            And instead of giving you something that can simply
+            be wrapped, I wanted to give you something made
+            especially for you.
+        </p>
+
+        <a href="#poster" class="scroll">
+            ↓ Begin the story
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- POSTER -->
+
+<section class="poster-section" id="poster">
+
+    <div class="poster-wrapper">
+
+        <img src="birthday-poster.png" alt="Our birthday movie poster">
+
+        <div class="poster-caption">
+            Our little story · Chapter 27
         </div>
 
-        <div class="card">
-          <span>🌙</span>
-          <h3>Our Story</h3>
-          <p>
-            We are still writing our story, and that's what
-            makes the future so exciting.
-          </p>
+    </div>
+
+</section>
+
+
+<!-- LETTER -->
+
+<section class="letter-section">
+
+    <div class="letter-container">
+
+        <div class="section-label">
+            A letter for you
         </div>
 
-      </div>
+        <h2 class="letter-title">
+            Dear Helu,
+        </h2>
+
+        <div class="letter">
+
+            <p>
+                Happy 27th birthday, my love. ❤️
+            </p>
+
+            <p>
+                I wanted to make something for you that wasn't
+                just another birthday message. Something you could
+                come back to one day and remember this moment.
+            </p>
+
+            <p>
+                We may not have thousands of photographs together.
+                We may not have years and years of memories.
+                But honestly, I don't think that's what makes a
+                story beautiful.
+            </p>
+
+            <p>
+                What matters is the person you're writing the story
+                with. And I'm grateful that you're part of mine.
+            </p>
+
+            <p>
+                As you enter 27, I pray that this year brings you
+                peace when life feels heavy, courage when things
+                feel uncertain, and happiness in the little moments
+                you sometimes overlook.
+            </p>
+
+            <p>
+                I hope you achieve the things you've been dreaming
+                about. I hope you become even more confident in
+                yourself. And I hope you always remember how
+                incredibly special you are.
+            </p>
+
+            <p>
+                And maybe one day, we'll look back at this little
+                website and laugh about how our story was only
+                beginning.
+            </p>
+
+            <div class="signature">
+                With all my love,<br>
+                Alfin ❤️
+            </div>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- FUTURE -->
-  <section class="future">
+<!-- HELU -->
 
-    <div class="content">
+<section class="helu-section">
 
-      <div class="small">Chapter ahead</div>
+    <div class="helu-image"></div>
 
-      <h2>Here's to More Memories</h2>
+    <div class="helu-text">
 
-      <p>
-        More conversations.
-        More laughter.
-        More random moments.
-        More celebrations.
-        More photographs.
-        More adventures.
-        More prayers.
-        More dreams.
-        And hopefully, many more birthdays together.
-      </p>
+        <div class="helu-text-inner">
 
-    </div>
+            <div class="section-label">
+                The birthday girl
+            </div>
 
-  </section>
+            <h2>
+                Beautiful<br>
+                <span>Helu.</span>
+            </h2>
 
+            <p>
+                27 looks beautiful on you.
+            </p>
 
-  <!-- FINAL -->
-  <section class="final">
+            <br>
 
-    <div>
+            <p>
+                I hope you see yourself the way the people who
+                love you see you — someone worth celebrating,
+                someone worth appreciating, and someone whose
+                presence makes life a little brighter.
+            </p>
 
-      <div class="big-heart">❤️</div>
+            <br>
 
-      <h2>Happy Birthday, Beautiful.</h2>
+            <p>
+                Never forget that you don't have to be perfect
+                to be loved, appreciated or celebrated.
+                Just being you is enough.
+            </p>
 
-      <p>
-        I hope today reminds you of how loved,
-        valuable and special you are.
-      </p>
-
-      <p style="margin-top:20px;">
-        May this be the beginning of your
-        most beautiful chapter yet.
-      </p>
-
-      <a href="#" class="button">
-        One More Time — Happy Birthday ❤️
-      </a>
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <footer>
-    Made with ❤️ especially for you
-  </footer>
+<!-- 27 THINGS -->
+
+<section class="reasons">
+
+    <div class="reasons-header">
+
+        <div class="section-label">
+            Chapter 27
+        </div>
+
+        <h2>
+            27 Little Things
+        </h2>
+
+        <p>
+            Twenty-seven little reminders of why you're
+            so special to me.
+        </p>
+
+    </div>
 
 
-  <script>
-    // Create additional floating hearts
-    function createHeart() {
-      const heart = document.createElement("div");
+    <div class="reasons-grid">
 
-      heart.className = "heart";
-      heart.innerHTML = Math.random() > 0.5 ? "♥" : "♡";
+        <div class="reason">
+            <div class="reason-number">01</div>
+            <h3>Your smile</h3>
+            <p>It can change the mood of an entire day.</p>
+        </div>
 
-      heart.style.left = Math.random() * 100 + "%";
-      heart.style.fontSize = (12 + Math.random() * 18) + "px";
-      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+        <div class="reason">
+            <div class="reason-number">02</div>
+            <h3>Your eyes</h3>
+            <p>There is something incredibly beautiful about them.</p>
+        </div>
 
-      document.body.appendChild(heart);
+        <div class="reason">
+            <div class="reason-number">03</div>
+            <h3>Your kindness</h3>
+            <p>The little things you do matter more than you know.</p>
+        </div>
 
-      setTimeout(() => {
+        <div class="reason">
+            <div class="reason-number">04</div>
+            <h3>Your laugh</h3>
+            <p>One of those sounds that is impossible not to love.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">05</div>
+            <h3>Your heart</h3>
+            <p>You care deeply, and that's beautiful.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">06</div>
+            <h3>Your strength</h3>
+            <p>You keep going even when things aren't easy.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">07</div>
+            <h3>Your honesty</h3>
+            <p>You make things real instead of pretending.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">08</div>
+            <h3>Your presence</h3>
+            <p>Sometimes simply having you around is enough.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">09</div>
+            <h3>Your personality</h3>
+            <p>There is nobody quite like you.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">10</div>
+            <h3>Your patience</h3>
+            <p>You understand more than you sometimes realize.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">11</div>
+            <h3>Your dreams</h3>
+            <p>I love seeing you imagine the life you want.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">12</div>
+            <h3>Your courage</h3>
+            <p>You are capable of more than you think.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">13</div>
+            <h3>Your voice</h3>
+            <p>A voice I could listen to for hours.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">14</div>
+            <h3>Your little habits</h3>
+            <p>Even the tiny things make you uniquely you.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">15</div>
+            <h3>Your warmth</h3>
+            <p>You make people feel comfortable being themselves.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">16</div>
+            <h3>Your ambition</h3>
+            <p>Never stop chasing the things you believe in.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">17</div>
+            <h3>Your simplicity</h3>
+            <p>You don't have to try hard to be special.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">18</div>
+            <h3>Your energy</h3>
+            <p>You bring something different wherever you go.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">19</div>
+            <h3>Your dreams</h3>
+            <p>I hope you never stop believing in them.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">20</div>
+            <h3>Your resilience</h3>
+            <p>You have made it through things that weren't easy.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">21</div>
+            <h3>Your compassion</h3>
+            <p>You care, and that is a beautiful quality.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">22</div>
+            <h3>Your confidence</h3>
+            <p>Never forget the woman you're becoming.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">23</div>
+            <h3>Your uniqueness</h3>
+            <p>There is only one Helu.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">24</div>
+            <h3>Your memories</h3>
+            <p>Even the small ones mean something.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">25</div>
+            <h3>Your future</h3>
+            <p>There is so much waiting for you.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">26</div>
+            <h3>Your heart</h3>
+            <p>It is one of the things I treasure most about you.</p>
+        </div>
+
+        <div class="reason">
+            <div class="reason-number">27</div>
+            <h3>Simply you</h3>
+            <p>Because there is nobody else I'd rather celebrate today.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FUTURE -->
+
+<section class="future">
+
+    <div class="future-inner">
+
+        <div class="section-label">
+            What's next?
+        </div>
+
+        <h2>
+            The best parts<br>
+            <span>are still ahead.</span>
+        </h2>
+
+        <p>
+            More conversations.<br>
+            More laughter.<br>
+            More random adventures.<br>
+            More photographs.<br>
+            More celebrations.<br>
+            More prayers.<br>
+            More dreams.<br>
+            More memories.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- 27 -->
+
+<section class="birthday">
+
+    <div class="section-label">
+        Today we celebrate you
+    </div>
+
+    <h2>
+        Happy
+        <span>27th</span>
+        Birthday
+    </h2>
+
+    <div class="birthday-number">
+        27
+    </div>
+
+    <p>
+        May 27 be the year you discover new reasons
+        to smile, new dreams to chase, and new memories
+        that you'll treasure forever.
+    </p>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div class="final-inner">
+
+        <div class="final-heart">❤️</div>
+
+        <h2>
+            Happy Birthday,
+            <span>Helu.</span>
+        </h2>
+
+        <p>
+            Thank you for being part of my story.
+            Whatever the future holds, I hope this little
+            page reminds you that your 27th birthday was
+            worth celebrating.
+        </p>
+
+        <div class="final-signature">
+            Always cheering for you,<br>
+            Alfin
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    Made with love · For Helu · Chapter 27
+</footer>
+
+
+<script>
+
+/* Loading screen */
+
+window.addEventListener("load", function() {
+
+    setTimeout(function() {
+        document.getElementById("loader").classList.add("hidden");
+    }, 1200);
+
+});
+
+
+/* Floating hearts */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = Math.random() > 0.5 ? "♥" : "♡";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
+
+    heart.style.animationDuration =
+        (6 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
         heart.remove();
-      }, 10000);
-    }
+    }, 11000);
+}
 
-    setInterval(createHeart, 1000);
-  </script>
+setInterval(createHeart, 1300);
+
+</script>
 
 </body>
 </html>
-```
